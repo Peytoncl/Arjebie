@@ -16,5 +16,22 @@ namespace Arjebie
 		{
 			InitializeComponent();
 		}
+
+		private string urlString;
+
+		private void button1_Click(object sender, EventArgs e)
+		{
+			urlString = textBox1.Text;
+			if (!urlString.Contains("https://"))
+			{
+				Uri url = new Uri("https://" + urlString);
+				webBrowser1.Url = url;
+			}
+			else if (urlString.Contains("https://"))
+			{
+				Uri url = new Uri(urlString);
+				webBrowser1.Url = url;
+			}
+		}
 	}
 }
